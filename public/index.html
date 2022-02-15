@@ -6,6 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>React Bootcamp</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/babel-standalone/6.26.0/babel.js" integrity="sha512-pBSlhNUvB+td6sjW1zmR6L7c7kVWR4octUPl4tfHmzO63424nxta8aLmficEcAAswQmRqTiToi63AazDurj/Sg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     <script crossorigin src="https://unpkg.com/react@17/umd/react.production.min.js"></script>
     <script crossorigin src="https://unpkg.com/react-dom@17/umd/react-dom.production.min.js"></script>
 </head>
@@ -14,17 +15,43 @@
     <div id="main">
         Normal Text
     </div>
-    <script>
+    <script type="text/babel">
         const domRef = document.getElementById('main');
 
-            const divs = React.createElement('div',{id: "divs"},
-            React.createElement('p',{},"this is first para"),
-            React.createElement('p',{},"this is second para"),
-            React.createElement('p',{},"this is third para"),
-            );
+            // const divs = React.createElement('div',{id: "divs"},
+            // React.createElement('p',{},"this is first para"),
+            // React.createElement('p',{},"this is second para"),
+            // React.createElement('p',{},"this is third para"),
+            // );
 
         // const P = React.createElement('p', {} ,"Paragraph created using React.createElement")
-        ReactDOM.render(divs, domRef);
+        // const Div2 = <div>
+        //         <p>This is first Paragraph <a href="https://www.youtube.com" target="_new">Link</a></p>
+        //         <p>This is second Paragraph</p>
+        //         <p>This is third Paragraph</p>
+        //     </div>;
+
+
+        //Actual react component (function)
+        function Div3({user}){
+            // console.log(props, "PROPS")
+            return (<div>
+                <p>{user.name}</p>
+                <p>{user.age}</p>
+                <p>This is first Paragraph <a href="https://www.youtube.com" target="_new">Link</a></p>
+                <p>This is second Paragraph</p>
+                <p>This is third Paragraph</p>
+            </div>)
+        }
+        // ReactDOM.render(Div2, domRef);
+
+        const user = {
+            name: 'prasad',
+            id: 1,
+            dob: '03-12-1997',
+            age: 23,
+        }
+        ReactDOM.render(<Div3 user={user} />, domRef);
     </script>
 </body>
 
